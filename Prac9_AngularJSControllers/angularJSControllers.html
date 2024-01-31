@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS Controllers</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+  <script src="app.js"></script>
+  
+</head>
+
+<body ng-controller="personCtrl">
+  <h1>AngularJS Controllers</h1>
+
+  <table border="1" width="30%">
+    <thead>
+      <tr>
+        <th ng-click="sortColumn('name')">Name</th>
+        <th ng-click="sortColumn('city')">City</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="person in people | orderBy:sortKey">
+        <td>{{ person.name }}</td>
+        <td>{{ person.city }}</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <title>Filter</title>
+</head>
+<body ng-controller="mainCtrl">
+    <h1>AngularJS Filters</h1>
+  
+    <h2>Original Data</h2>
+    <ul>
+      <li ng-repeat="person in people">
+        {{ person.name + ', ' + person.country }}
+      </li>
+    </ul>
+  
+    <h2>Uppercase Filter</h2>
+    <ul>
+      <li ng-repeat="person in people">
+        {{ person.name | uppercase }}
+      </li>
+    </ul>
+  
+    <h2>Lowercase Filter</h2>
+    <ul>
+      <li ng-repeat="person in people">
+        {{ person.name | lowercase }}
+      </li>
+    </ul>
+  
+    <h2>Filter Filter (Country: 'USA')</h2>
+    <ul>
+      <li ng-repeat="person in people | filter:{ country: 'USA' }">
+        {{ person.name + ', ' + person.country }}
+      </li>
+    </ul>
+  
+    <h2>OrderBy Filter (Ordered by Name)</h2>
+    <ul>
+      <li ng-repeat="person in people | orderBy:'name'">
+        {{ person.name + ', ' + person.country }}
+      </li>
+    </ul>
+
+    <script>
+        angular.module('myApp', [])
+            .controller('mainCtrl', function ($scope) {
+                $scope.people = [
+                { name: 'Chandan', country: 'USA' },
+                { name: 'Om', country: 'India' },
+                { name: 'Sahil', country: 'USA' },
+                { name: 'Rahul', country: 'Canada' },
+                { name: 'Sumit', country: 'USA' },
+                ];
+            });
+    </script>
+
+</body>
+</html>

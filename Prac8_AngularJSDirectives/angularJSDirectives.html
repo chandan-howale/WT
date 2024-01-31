@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="salaryApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>Directives</title>
+</head>
+
+<body ng-controller="salaryCtrl">
+    <h1>Calculate Salary</h1>
+
+  <form>
+
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" ng-model="employee.firstName" required><br><br>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" ng-model="employee.lastName" required><br><br>
+
+    <label for="hra">HRA:</label>
+    <input type="number" id="hra" ng-model="employee.hra" required><br><br>
+
+    <label for="da">DA:</label>
+    <input type="number" id="da" ng-model="employee.da" required><br><br>
+
+    <label for="basic">Basic Salary:</label>
+    <input type="number" id="basic" ng-model="employee.basic" required><br><br>
+
+    <button ng-click="calculateSalary()">Calculate Salary</button>
+
+  </form>
+
+  <h2>Employee Details</h2>
+  <p>Name: {{ employee.firstName + ' ' + employee.lastName }}</p>
+  <p>HRA: {{ employee.hra | currency }}</p>
+  <p>DA: {{ employee.da | currency }}</p>
+  <p>Basic Salary: {{ employee.basic | currency }}</p>
+  <p>Total Salary: {{ totalSalary | currency }}</p>
+</body>
+</html>
